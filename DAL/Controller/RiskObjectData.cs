@@ -39,18 +39,17 @@ namespace DAL.Controller
             context.SaveChanges();
         }
 
-        public void Update(int id)
+        public RisksObject Update(int id, string title, string desc)
         {
-            var recordToUpdate = context.RisksObjects.FirstOrDefault(x => x.Id == id);
+            var recordToUpdate = Get(id);
+            recordToUpdate.Title = title;
+            recordToUpdate.Description = desc;
 
-            RisksObject updateModel = new RisksObject()
-            {
-                Title = "THIS IS UPDATED",
-                Description = "THIS IS ALSO UPDATED",
-            };
-
-            context.RisksObjects.Update(updateModel);
+           
+            context.RisksObjects.Update(recordToUpdate);
             context.SaveChanges();
+
+            return recordToUpdate;
         }
 
     }

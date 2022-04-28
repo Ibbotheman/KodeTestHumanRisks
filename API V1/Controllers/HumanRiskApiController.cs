@@ -39,9 +39,9 @@ namespace API_V1.Controllers
 
        [HttpPost]
        [Route("Update")]
-       public void Update(int id)
+       public void Update(int id,RiskObjectDTO riskObject)
         {
-            objectService.Update(id);
+            objectService.Update(id, riskObject.Title, riskObject.Description);
         }
 
         [HttpPost]

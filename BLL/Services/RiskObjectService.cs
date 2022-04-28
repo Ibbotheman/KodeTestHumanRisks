@@ -37,9 +37,10 @@ namespace BLL.Services
             context.Delete(id);
         }
 
-        public void Update(int id)
+        public RisksObject Update(int id, string title, string desc)
         {
-            context.Update(id);
+            
+            return context.Update(id, title, desc);
         }
     }
 }
